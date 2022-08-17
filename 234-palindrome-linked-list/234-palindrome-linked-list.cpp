@@ -29,12 +29,13 @@ public:
      
         ListNode *prev=NULL;
         ListNode *curr=head;
+        ListNode *currNext=NULL;
             
         while(curr!=NULL){
-            ListNode *temp=curr->next;
+            currNext = curr->next;
             curr->next=prev;
             prev=curr;
-            curr=temp;
+            curr=currNext;
         }
         head = prev;
         return head;
