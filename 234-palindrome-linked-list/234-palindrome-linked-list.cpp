@@ -19,17 +19,12 @@ public:
             head=head->next;
         }
     
-        vector<int> v;
-        v=temp;
-        
-        reverse(temp.begin(), temp.end());
-        
-        for(int j=0; j<v.size(); j++){
-            if(temp[j]!=v[j]){
+        for(int i=0; i<temp.size()/2; i++){
+            if(temp[i]!=temp[temp.size()-1-i]){
                 return false;
             }
         }
         return true;
-        
     }
 };
+
