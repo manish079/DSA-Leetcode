@@ -49,7 +49,7 @@ public:
         //10 <- 20 30->40->50->60->NULL    //recursion handles n-1 th cases(node 30 to NULL)      
         
         //Remaining element are reverse handled by recurion
-         if(next!=NULL)  // Till list is not reaches to NULL (20 10 40 30 60 50 NULL) then next and                                        //  curr point NULL that is list is reversed completely.
+         if(next!=NULL)  // Till list is not reaches to NULL (20 10 40 30 60 50 NULL) then next and curr point NULL that is list is reversed completely.                                       
             head->next=reverseKGroup(next, k);
         
         return prev;
