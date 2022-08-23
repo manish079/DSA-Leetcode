@@ -80,7 +80,7 @@ public:
         ListNode *head1=head;
         ListNode *head2 = mid->next;
         
-        while(head2!=NULL && head1!=NULL){
+        while(head2!=NULL){
             if(head1->val!=head2->val)
                 return false;
             head1=head1->next;
