@@ -30,18 +30,34 @@ public:
         
         
         //Approach-2 HashMap
+        //sc- O(n); Tc - O(n) 
         
-        unordered_map<ListNode*, bool> visited;
-        ListNode *temp=head;
+//         unordered_map<ListNode*, bool> visited;
+//         ListNode *temp=head;
         
-        while(temp!=NULL){
+//         while(temp!=NULL){
             
-            //cycle is present
-            if(visited[temp] == true)
+//             //cycle is present
+//             if(visited[temp] == true)
+//                 return true;
+//             //mark node visited if cycle not detect
+//             visited[temp] = true;
+//             temp=temp->next;
+//         }
+//         return false;
+        
+        
+        
+        //Approace 3 hashtable
+        
+        unordered_set<ListNode*> s;
+        
+        while(head!=NULL){
+            if(s.find(head) != s.end()){
                 return true;
-            //mark node visited if cycle not detect
-            visited[temp] = true;
-            temp=temp->next;
+            }
+            s.insert(head);
+            head = head->next;
         }
         return false;
         
