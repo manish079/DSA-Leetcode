@@ -5,6 +5,7 @@ public:
         int s = 0;
         int e = letters.size()-1;
         
+        //base case 
         if(target >= letters[e])
             return letters[0];
         
@@ -15,7 +16,8 @@ public:
             else
                 s = mid+1;
         }
-        // return letters[s%letters.size()];
+        
+        // return letters[s%letters.size()];  // If we don't write base case here automatically handle
         return letters[s];
         
     }
