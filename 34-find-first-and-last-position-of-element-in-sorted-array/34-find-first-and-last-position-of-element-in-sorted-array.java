@@ -3,8 +3,8 @@ class Solution {
     public int[] searchRange(int[] nums, int target) {
         
         int[] arr = new int[2];
-         arr[0] = binary_search(nums, target, "first");
-        arr[1]= binary_search(nums, target, "last");
+         arr[0] = binary_search(nums, target, "first"); //It find first occurence
+         arr[1]= binary_search(nums, target, "last");   //find last occurnce
         
         return arr;
         
@@ -26,6 +26,7 @@ class Solution {
                 if(start=="last"){
                     s = mid+1;
                 }
+    
                 
             }
             else if(nums[mid]>target){
