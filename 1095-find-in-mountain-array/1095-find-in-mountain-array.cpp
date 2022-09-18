@@ -12,36 +12,41 @@ class Solution {
 public:
     int binary_search(MountainArray &mountainArr, int s, int e, int target){
         
-            while(s<=e){
+        if(mountainArr.get(s) < mountainArr.get(e)){
+             while(s<=e){
+                     int mid = s+(e-s)/2;
+                    if(mountainArr.get(mid)==target)
+                        return mid;
+                    else if(mountainArr.get(mid) > target)
+                        e = mid-1;
+                    else
+                        s = mid+1;
+            }
+            return -1;
+        }
+        else{
+             while(s<=e){
                  int mid = s+(e-s)/2;
                 if(mountainArr.get(mid)==target)
                     return mid;
                 else if(mountainArr.get(mid) > target)
-                    e = mid-1;
-                else
-                    s = mid+1;
-        }
-        return -1;
-    }
-    int binary_search_right(MountainArray &mountainArr, int s, int e, int target){
-         while(s<=e){
-                 int mid = s+(e-s)/2;
-                if(mountainArr.get(mid)==target)
-                    return mid;
-                else if(mountainArr.get(mid) > target)
                     s = mid+1;
                 else
                     e = mid-1;
         }
-        return -1;
+            return -1;
+        }
+           
     }
+//     int binary_search_right(MountainArray &mountainArr, int s, int e, int target){
+        
+//     }
     
     int findInMountainArray(int target, MountainArray &mountainArr) {
         
         int s=0;
         int e=mountainArr.length()-1;
     
-        
         //find peak element 
         while(s<e){
             int mid = s+(e-s)/2;
@@ -53,14 +58,14 @@ public:
             }
         }
         
-        //search range 0 to peak element index
-        int ind = binary_search(mountainArr, 0, e, target);
+        //search range 0 to peak element(e) index 
+        int ind = binary_search(mountainArr, 0, e, target);  //array is asceding search
         
         if(ind!=-1){
                return ind;
         }
         else{
-            return binary_search_right(mountainArr, e+1, mountainArr.length()-1, target);
+            return binary_search(mountainArr, e+1, mountainArr.length()-1, target);  // descending search
         }
         
     }
