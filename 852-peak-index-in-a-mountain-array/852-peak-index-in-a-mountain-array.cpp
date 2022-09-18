@@ -41,6 +41,6 @@ public:
             else
                 s = mid+1;
         }
-        return e;
+        return s;
     }
 };
