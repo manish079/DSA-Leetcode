@@ -49,7 +49,7 @@ class Solution {
                 return mid;
             if (mid > s && nums[mid] < nums[mid - 1]) // mid previous value is greater than mid
                 return mid - 1;
-            if (nums[s] >= nums[mid])
+            if (nums[s] > nums[mid])
                 e = mid - 1;
             else
                 s = mid + 1;
