@@ -18,31 +18,32 @@ class Solution {
             int mid = start + (end - start) / 2;
 
             // calculate how many pieces you can divide this in with this max sum
-            int sum = 0;
+            int curr_sum = 0;
             int pieces = 1;
              
              if(start==end)
                  return end;
              
             for(int i=0; i<nums.length; i++) {
-                if (sum + nums[i] > mid) {
-                    // you cannot add this in this subarray, make new one
+                if (curr_sum + nums[i] <= mid) {
+                    curr_sum+=nums[i];
+                } 
+                 //If current_sum > middle then we cannot add this in this subarray, make new one
                     // say you add this num in new subarray, then sum = num
-                    sum = nums[i];
+                else {
+                    curr_sum = nums[i];
                     pieces++;
-                } else {
-                    sum += nums[i];
                 }
             }
 
-            if (pieces > m) {
-                start = mid + 1;
+            if (pieces <= m) {
+                end=mid;
             } else {
-                end = mid;
+                start=mid+1;
             }
 
         }
-        return -1; // here start == end
+        return -1; 
     }
 
 }
