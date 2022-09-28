@@ -26,7 +26,7 @@ public:
             fast = fast->next;
         
         if(fast==NULL)
-            return slow->next;
+            return head->next;
        
         
         while(fast->next!=NULL){
