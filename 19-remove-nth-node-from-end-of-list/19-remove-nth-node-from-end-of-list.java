@@ -33,7 +33,7 @@ class Solution {
             head = head.next;
         }
         
-        for(int i=1; i<pos && ptr.next!=null; i++){
+        for(int i=1; i<pos && ptr.next!=null; i++){  // i<pos bcoz starting already ptr point to first node so.
             ptr = ptr.next;
         }
         
