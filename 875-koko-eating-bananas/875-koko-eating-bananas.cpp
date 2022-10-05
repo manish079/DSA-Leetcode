@@ -1,18 +1,18 @@
 class Solution {
 public:
     
-    bool isPossibleTime(vector<int>&piles, int mid, int h){
+    bool canItInTime(vector<int>&piles, int mid, int h){
         
-        long time = 0;
+        long hour = 0;
         
         for(int i=0; i<piles.size(); i++){
-            time+=(piles[i]/mid);
+            hour+=(piles[i]/mid);
             if(piles[i]%mid!=0){
-                time++;
+                hour++;
             }
         }
         
-        if(time <= h)
+        if(hour <= h)
             return true;
         else
             return false;
@@ -28,7 +28,7 @@ public:
         while(left<=right){
             int mid = (left+right)>>1;
             
-            if(isPossibleTime(piles, mid, h)){
+            if(canItInTime(piles, mid, h)){
                 ans = mid;
                 right = mid-1;
             }
