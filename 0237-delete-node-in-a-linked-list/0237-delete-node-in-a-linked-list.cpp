@@ -11,6 +11,13 @@ public:
     void deleteNode(ListNode* node) {
         
         ListNode *temp = node;
+        
+        if(node==NULL){
+            return;
+        }
+        if(node->next==NULL){
+            delete node;
+        }
       
        
         while(temp->next->next!=NULL){
