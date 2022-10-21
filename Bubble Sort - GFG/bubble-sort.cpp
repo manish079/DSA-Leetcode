@@ -23,13 +23,20 @@ class Solution
     void bubbleSort(int arr[], int n)
     {
         // Your code here  
+        bool status=true;
         for(int i=0; i<n-1; i++){
+            status = true;
             for(int j=0; j<n-i-1; j++){
                if(arr[j]>arr[j+1]){
                    int temp = arr[j];
                    arr[j]=arr[j+1];
                    arr[j+1]=temp;
+                   
+                   status = false;
                }
+            }
+            if(status){
+                break;
             }
         }
     }
