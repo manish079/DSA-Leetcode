@@ -16,6 +16,13 @@ public:
         ListNode *temp = dummy;
         
         
+        if(list1==NULL){
+            return list2;
+        }
+        if(list2==NULL){
+            return list1;
+        }
+        
         while(list1!=NULL && list2!=NULL){
             if(list1->val < list2->val){
                 temp->next = list1;
