@@ -35,7 +35,8 @@ public:
         }
         */
         
-        //Without space using
+        //Without space using O(1) space complexity 
+        //Time complexity O(m+n)  total number of element
         int i = m - 1, j = n - 1, k = (m + n - 1);
 
         while (i >= 0 && j >= 0)
