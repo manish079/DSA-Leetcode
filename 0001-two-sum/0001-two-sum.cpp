@@ -2,6 +2,9 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         
+        //If array is sorted use two pointer approace
+        // If not sort then use hash table
+        
         vector<int> v;
         
         unordered_map<int, int> m;
