@@ -10,6 +10,7 @@ public:
         
         int i=0;
         
+        //according question also changes do in nums vector
         for(auto it:s){
             nums[i] = it;
             i++;
