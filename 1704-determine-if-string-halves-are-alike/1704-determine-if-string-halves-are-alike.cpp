@@ -1,10 +1,4 @@
-/*
-    MY YOUTUBE VIDEO ON THIS Qn : https://www.youtube.com/watch?v=oSSMo0PCQts
-    Company Tags                : Google, Amazon, Microsoft, Meta
-    Leetcode Link               : https://leetcode.com/problems/determine-if-string-halves-are-alike/
-*/
 
-//Approach-1 (Using Set)
 class Solution {
 public:
     bool isVowel(char &ch) {
