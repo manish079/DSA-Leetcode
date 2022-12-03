@@ -13,17 +13,21 @@ public:
             v.push_back({it.second, it.first});
         }
         
-        sort(v.begin(), v.end());
-        string ans = "";
+        priority_queue<pair<int, char>> pq;
         
-        for(auto it: v){
-            for(int i=0; i<it.first; i++){
-                ans.push_back(it.second);
-            }
+        for(auto it : m){
+            pq.push({it.second, it.first});
         }
         
-        reverse(ans.begin(), ans.end());
+        string ans = "";
         
-        return ans;         
+        pair<int, char> curr;
+        
+        while(!pq.empty()){
+            curr = pq.top();
+            pq.pop();
+            ans+=string(curr.first, curr.second);
+        }
+        return ans;
     }
 };
