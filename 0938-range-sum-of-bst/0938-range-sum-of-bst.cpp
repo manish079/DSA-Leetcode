@@ -11,28 +11,22 @@
  */
 class Solution {
 public:
-    void preOrder(TreeNode *ptr, vector<int> &vec){
-        if(ptr!=NULL){
-            vec.push_back(ptr->val);
-            preOrder(ptr->left, vec);
-            preOrder(ptr->right, vec);
+    void preOrder(TreeNode *root, int &ans, int low, int high){
+        
+        if(root!=NULL){
+            if(root->val >= low && root->val <= high){
+                ans += root->val;
+            }
+            preOrder(root->left, ans, low, high);
+            preOrder(root->right, ans, low, high);
         }
+        
     }
     int rangeSumBST(TreeNode* root, int low, int high) {
         
-        TreeNode *ptr = root;
-        vector<int> vec;
+        int ans = 0;
+        preOrder(root, ans, low, high);
         
-        preOrder(root, vec);
-        
-        
-        int sum = 0;
-        for(int i=0; i<vec.size(); i++){
-            if(vec[i] >= low && vec[i] <= high){
-                sum += vec[i];
-            }
-        }
-        return sum;
-        
+        return ans;
     }
 };
