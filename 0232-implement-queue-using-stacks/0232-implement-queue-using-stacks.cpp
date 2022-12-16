@@ -16,19 +16,17 @@ public:
     }
     
     int pop() {
-        int t;
+      
         if(output.empty()){
+            // o(n)
             while(!input.empty()){
                 output.push(input.top());
                 input.pop();
             }
-          t =  output.top();
-             output.pop();
-            return t;
         }
-        t = output.top();
+       int temp = output.top();  //O(1)
         output.pop();
-        return t;
+        return temp;
     }
     
     int peek() {
