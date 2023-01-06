@@ -11,6 +11,7 @@ public:
             if(mid*mid == x)
                 return mid;
             
+            //reduce search space in right side
             if((mid*mid) > x)
                 e = mid-1;
             else
