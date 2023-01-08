@@ -1,8 +1,7 @@
 class Solution {
 public:
     int maxPoints(vector<vector<int>>& points) {
-        //bruteforce
-        int n = points.size();
+            int n = points.size();
         if(n == 1)
             return 1;
         
@@ -10,25 +9,22 @@ public:
         
         for(int i = 0; i<n; i++) {
             
-            for(int j = i+1; j<n; j++) {
+            unordered_map<double, int> mp;
+            
+            for(int j = 0; j<n; j++) {
                 
-                int count = 2;
+                if(i == j) continue;
                 
-                int dx = points[j][0] - points[i][0];
-                int dy = points[j][1] - points[i][1];
+                auto dy = points[j][1] - points[i][1];
+                auto dx = points[j][0] - points[i][0];
+                auto slope = atan2(dy, dx);
                 
-                for(int k = 0; k < n; k++) {
-                    
-                    if(k != i && k != j) {
-                        int dxx = points[k][0] - points[i][0];
-                        int dyy = points[k][1] - points[i][1];
-                        
-                        if(dxx * dy == dyy * dx)
-                            count++;
-                    }    
-                }
+                mp[slope]++;
                 
-                result = max(result, count);
+            }
+            
+            for(auto &it : mp) {
+                result = max(result, it.second+1);
             }
         }
         
