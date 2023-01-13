@@ -16,7 +16,7 @@ public:
             else
                 e = mid;
         }
-        return s;
+        return e;
         
        
     }
