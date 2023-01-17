@@ -2,17 +2,14 @@ class Solution {
 public:
     char findTheDifference(string s, string t) {
        
-        unordered_map<char, int> mapp;
+       int sum1=0, sum2=0;
         
-        for(int i=0; i<s.size(); i++)
-            mapp[s[i]]++;
-        for(int i=0; i<t.size(); i++)
-            mapp[t[i]]++;
-        
-        for(auto it:mapp){
-            if(it.second%2!=0)
-                return it.first;
+        for(int i=0; i<s.size(); i++){
+            sum1+=s[i];
         }
-        return NULL;
+        for(int i=0; i<t.size(); i++){
+            sum2+=t[i];
+        }
+        return sum2-sum1;
     }
 };
