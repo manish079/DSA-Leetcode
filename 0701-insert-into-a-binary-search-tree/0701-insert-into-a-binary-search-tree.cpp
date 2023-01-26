@@ -14,6 +14,8 @@ class Solution
     public:
         TreeNode* insertIntoBST(TreeNode *root, int val)
         {
+            
+            //O(n) and space complexity O(1)
             TreeNode *node = new TreeNode(val);
             TreeNode *temp = root;
             
