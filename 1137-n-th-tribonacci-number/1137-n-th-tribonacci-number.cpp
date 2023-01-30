@@ -15,13 +15,13 @@ public:
         // upto size of n is 38
         
         
-        //space complexity will be O(38) or still O(1).
-        //Time complexity will be O(1)
+        //space complexity will be O(38) or still O(n).
+        //Time complexity will be O(n)
         int arr[38] = {0};
         
         arr[0] = 0, arr[1] = 1, arr[2]=1;
         
-        for(int i=3; i<38; i++){
+        for(int i=3; i<=n; i++){
             arr[i] = arr[i-1]+arr[i-2]+arr[i-3];
         }
         
