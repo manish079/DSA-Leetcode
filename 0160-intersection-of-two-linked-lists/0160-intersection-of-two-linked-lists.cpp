@@ -9,23 +9,26 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        ListNode *ptr1, *ptr2;
+        ListNode *ptr;
+        
+        
+        //Brute force solution
         
         if(headA==NULL || headB==NULL)
             return NULL;
         
-        ptr1= headA;
-        while(ptr1!=NULL){
-             ptr2=headB;
-            while(ptr2!=NULL){
-                if(ptr1==ptr2){
-                   return ptr2;  // return anyone pointer
+ 
+        while(headA!=NULL){
+             ptr=headB;
+            while(ptr!=NULL){
+                if(headA==ptr){
+                   return ptr;  // return anyone pointer
                 }
                 else{
-                    ptr2=ptr2->next;
+                    ptr=ptr->next;
                 }
             }
-            ptr1=ptr1->next;
+            headA=headA->next;
         }
         return NULL;
     }
