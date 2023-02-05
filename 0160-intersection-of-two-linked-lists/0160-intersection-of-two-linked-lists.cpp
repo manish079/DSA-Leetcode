@@ -9,17 +9,22 @@
 class Solution {
 public:
 	ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-		unordered_map<ListNode*, int> m;
-		while(headA != NULL){
-			m[headA]++;
-			headA = headA -> next;
-		}
-		while(headB != NULL){
-			if(m[headB] > 0){
-				return headB;
-			}
-			headB = headB -> next;
-		}
-		return NULL;
+		
+        unordered_set<ListNode*> s;
+        if(headA==NULL || headB==NULL)
+            return NULL;
+        
+        while(headA!=NULL){
+            s.insert(headA);
+            headA=headA->next;
+        }
+        
+       while(headB!=NULL){
+           if(s.find(headB)!=s.end()){
+               return headB;
+           }
+           headB=headB->next;
+       }
+        return NULL;
 	}
 };
