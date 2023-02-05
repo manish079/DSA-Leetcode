@@ -8,28 +8,18 @@
  */
 class Solution {
 public:
-    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        ListNode *ptr;
-        
-        
-        //Brute force solution
-        
-        if(headA==NULL || headB==NULL)
-            return NULL;
-        
- 
-        while(headA!=NULL){
-             ptr=headB;
-            while(ptr!=NULL){
-                if(headA==ptr){
-                   return ptr;  // return anyone pointer
-                }
-                else{
-                    ptr=ptr->next;
-                }
-            }
-            headA=headA->next;
-        }
-        return NULL;
-    }
+	ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+		unordered_map<ListNode*, int> m;
+		while(headA != NULL){
+			m[headA]++;
+			headA = headA -> next;
+		}
+		while(headB != NULL){
+			if(m[headB] > 0){
+				return headB;
+			}
+			headB = headB -> next;
+		}
+		return NULL;
+	}
 };
