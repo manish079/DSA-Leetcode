@@ -17,7 +17,7 @@ public:
         mapp[s[i]]++;
     
       
-      int temp = s.size();
+      int temp = s.size();  // for getting smallest number of character
  
       
       for(auto it : mapp){
