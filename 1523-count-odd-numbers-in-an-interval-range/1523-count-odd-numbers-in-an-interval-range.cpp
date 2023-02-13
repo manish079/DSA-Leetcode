@@ -2,13 +2,12 @@ class Solution {
 public:
     int countOdds(int low, int high) {
         
-        int count = 0;
+        int temp = (high-low)/2;
         
-        for(int i=low; i<=high; i++){
-            if(i%2!=0){
-                count++;
-            }
+        //If anyone one not is odd then add one 
+        if(low%2!=0 || high%2!=0){
+            temp++;
         }
-        return count;
+        return temp;
     }
 };
