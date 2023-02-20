@@ -13,6 +13,6 @@ public:
             else
                 return mid;
         }
-        return e+1;
+        return s;
     }
 };
