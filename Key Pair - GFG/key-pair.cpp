@@ -11,23 +11,20 @@ public:
 	// Function to check if array has 2 elements
 	// whose sum is equal to the given value
 	bool hasArrayTwoCandidates(int arr[], int n, int x) {
-	  
-	 int left = 0, right = n-1;
-	 
-	 sort(arr, arr+n);
-	 
-	 while(left<right){
-	     if(arr[left]+arr[right]==x){
-	         return true;
-	     }
-	     else if(arr[left]+arr[right] > x){
-	         right--;
-	     }
-	     else{
-	         left++;
-	     }
-	 }
-	 return false;
+	    // code here
+	    
+	    unordered_map<int, int> mapp;
+	    
+	    for(int i=0; i<n; i++){
+	        
+	        int res = x - arr[i];
+	        
+	        if(mapp.find(res)!=mapp.end()){
+	             return true;
+	        }
+	            mapp[arr[i]]++;
+	    }
+	    return false;
 	}
 };
 
