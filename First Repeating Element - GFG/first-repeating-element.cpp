@@ -16,7 +16,8 @@ class Solution {
         for(int i=0; i<n; i++)
             m[arr[i]]++;
         
-        //we check freuqency of element corresponsing of arr
+               //we check frequency of element corresponding of arr
+
         for(int i=0; i<n; i++){
             if(m[arr[i]] > 1)
                 return i+1;
