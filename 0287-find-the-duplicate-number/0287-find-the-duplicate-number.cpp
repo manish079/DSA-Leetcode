@@ -1,13 +1,24 @@
-class Solution {
-public:
-    int findDuplicate(vector<int>& nums) {
-        
-       sort(nums.begin(), nums.end());
-        
-        for(int i=0; i<nums.size()-1; i++){
-            if(nums[i]==nums[i+1])
-                return nums[i];
+class Solution
+{
+    public:
+        int findDuplicate(vector<int> &nums) {
+            
+            int ans = -1;
+            
+            for(int i=0; i<nums.size(); i++){
+                
+                int ind = abs(nums[i]);
+                
+                //If found duplicate element
+                if(nums[ind] < 0){
+                    ans = ind;
+                    break;
+                }
+                else{
+                    //visited mark
+                    nums[ind] *= -1; 
+                }
+            }
+            return ans;
         }
-        return -1;
-    }
 };
