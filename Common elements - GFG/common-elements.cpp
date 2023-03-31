@@ -9,34 +9,31 @@ class Solution
     public:    
        vector <int> commonElements (int arr1[], int arr2[], int arr3[], int n1, int n2, int n3)
         {
-             vector<int> result;
-             vector<int> ans;
-                int i = 0, j = 0, k = 0;
-                
-                while (i < n1 && j < n2 && k < n3) {
-                    if (arr1[i] == arr2[j] && arr2[j] == arr3[k]) {
-                        result.push_back(arr1[i]);
-                        i++;
-                        j++;
-                        k++;
-                    } else if (arr1[i] < arr2[j]) {
-                        i++;
-                    } else if (arr2[j] < arr3[k]) {
-                        j++;
-                    } else {
-                        k++;
-                    }
+            vector<int> result;
+            unordered_set<int>s; 
+
+            int i = 0, j = 0, k = 0;
+
+        
+        while (i < n1 && j < n2 && k < n3) {
+            if (arr1[i] == arr2[j] && arr2[j] == arr3[k]) {
+                if(result.empty() || result.back()!=arr1[i]){
+                    result.push_back(arr1[i]);
                 }
-    
-                //arr = 3,3,1,2  arr2 = 3 3 4 5  arr3 = 3 3 6 7
-                // 3 3 duplicate
-                
-                set<int>s;
-                for(int i=0; i<result.size(); i++)
-                    s.insert(result[i]);
-                for(auto it = s.begin(); it!=s.end(); it++)
-                    ans.push_back(*it);
-                return ans;
+                i++;
+                j++;
+                k++;
+            } else if (arr1[i] < arr2[j]) {
+                i++;
+            } else if (arr2[j] < arr3[k]) {
+                j++;
+            } else {
+                k++;
+            }
+        }
+
+          return result;
+          
         }
 
 };
