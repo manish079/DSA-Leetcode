@@ -1,32 +1,39 @@
-class Solution
-{
-    public:
-        int findPairs(vector<int> &nums, int k)
-        {
-          int i=0, j=1;
-          set<pair<int, int>> sp;
+class Solution {
+public:
+    int binarySearch(vector<int> &nums, int s, int target){
+        
+        int e = nums.size()-1;
+        
+        while(s<=e){
+            int mid = (s+e)/2;
             
-            sort(nums.begin(), nums.end());
-            
-            while(j<nums.size()){
-                int sub = nums[j]-nums[i];
-                //We found a pair
-                if(sub == k){
-                   
-                    pair p = make_pair(nums[i], nums[j]);
-                    sp.insert(p);  //unique pair
-                    i++;
-                    j++;
-                }
-                else if(sub < k){
-                    j++;
-                }
-                else 
-                    i++;
-                
-                if(i == j)
-                    j++;
+            if(nums[mid] == target){
+                return mid;
             }
-            return sp.size();
+            else if(nums[mid] < target){
+                s = mid+1;
+            }
+            else{
+                e = mid-1;
+            }
         }
+        return -1;
+        
+    }
+    int findPairs(vector<int>& nums, int k) {
+        
+        
+        set<pair<int, int>> sp;
+        
+        sort(nums.begin(), nums.end());
+        
+        for(int i=0; i<nums.size(); i++){
+            int x = nums[i] + k;
+            if(binarySearch(nums, i+1, x) != -1){
+                sp.insert({nums[i], x});
+            }
+        }
+        return sp.size();
+    
+    }
 };
