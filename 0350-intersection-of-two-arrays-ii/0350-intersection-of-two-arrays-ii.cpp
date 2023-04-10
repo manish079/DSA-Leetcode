@@ -1,27 +1,16 @@
-class Solution
-{
-    public:
-        bool isPresent(vector<int> &v, int ele)
-        {
-            for (int i = 0; i < v.size(); i++)
-            {
-                if (v[i] == ele)
-                {
-                    v[i] = -1;
-                    return true;
-                }
-            }
-            return false;
-        }
-    vector<int> intersect(vector<int> &nums1, vector<int> &nums2)
-    {
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        
         vector<int> ans;
-
-        for (int i = 0; i < nums2.size(); i++)
-        {
-            if (isPresent(nums1, nums2[i]))
-            {
-                ans.push_back(nums2[i]);
+        
+        for(int i=0; i<nums1.size(); i++){
+            for(int j=0; j<nums2.size(); j++){
+                if(nums1[i] == nums2[j]){
+                    ans.push_back(nums1[i]);
+                    nums2[j] = -1 * nums2[j];
+                    break;
+                }
             }
         }
         return ans;
