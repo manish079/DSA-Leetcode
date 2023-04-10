@@ -1,18 +1,25 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int l=0 , r= 1, maxP=0; 
         
-        while (r<prices.size()){
-            if(prices[l] <prices[r]){
-                int profit=prices[r]-prices[l];
-                maxP=max(maxP,profit);
+       // Bruteforce take O(N2)
+        
+        //Optimize
+        
+        int curr = 0, next = 1;
+        int profit = 0;
+        
+        while(next < prices.size()){
+            if(prices[curr] < prices[next]){
+                profit = max(prices[next]-prices[curr], profit);
             }
             else{
-                l=r;
+                curr = next;
             }
-            r++;
+            next++;
         }
-        return maxP; 
+        
+        return profit;
+        
     }
 };
