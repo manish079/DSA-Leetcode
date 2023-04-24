@@ -5,12 +5,15 @@ public:
         priority_queue<int> maxHeap;
         
         for(int i=0; i<stones.size(); i++)
-            maxHeap.push(stones[i]);  //logn
+            maxHeap.push(stones[i]);  
         
-        while(maxHeap.size() > 1){  //n
+        
+        //insertion and deletion take logn time 
+        
+        while(maxHeap.size() > 1){  
             
             int x = maxHeap.top(); 
-            maxHeap.pop();    //logn
+            maxHeap.pop();    
             int y = maxHeap.top();
             maxHeap.pop();
             
@@ -18,4 +21,7 @@ public:
         }
         return maxHeap.top();
     }
+    
+    //Time complexity
+    // n*(3*logn)=> (nlogn)
 };
