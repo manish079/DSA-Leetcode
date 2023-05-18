@@ -4,6 +4,9 @@ public:
         
         vector<bool> indegree(n, false);
         
+        //Idea:- is mark true those vertext whose indegree is 0 means they have any incoming edges
+        // We incluses that vertices whose no incoming edge
+        
         for(int i=0; i<edges.size(); i++){
             
             int edge = edges[i][0];
