@@ -1,34 +1,39 @@
 class Solution {
 public:
   
-  string reverseWords(string s) {
-        string result;
-        int i = 0, n = s.length();
+  string reverseWords(string str) {
+      
+    string ans = "";
+    stack<string> s;
+
+     int i = 0;
+    string temp = "";
+
+
+    while(i<str.length()){
         
-        while(i < n){
-			//detect spaces and removed it
-            //ex. ___hello_world
-            
-            while(i < n && s[i] == ' ') i++;
-            
-            // If string has many trailling spaces we should print only one space so this condition.
-            if(i >= n) break;
-            
-            int j = i;
-            
-			//to detect characters and break when we detect any space
-            while(j < n && s[j] != ' ') j++;
-            
-			//to take out the first word
-            string sub = s.substr(i, j-i);
-            
-            if(result.length() == 0) result = sub;
-            
-            else result = sub + " " + result;
-            
-            i = j+1;
-        }
         
-        return result;
+      if(str[i] == ' ' ){
+          if(temp.length() >= 1)
+               s.push(temp);
+        temp = "";
+      }
+      else{
+        temp += str[i];
+      }
+      i++;
+    }
+    ans += temp;
+      
+    while (!s.empty()){
+        ans +=" " +s.top();
+        s.pop();
+    }
+      if(ans.length() != 0 && ans[0] == ' '){
+          ans = ans.substr(1, ans.length()+1);
+      }
+  
+      
+      return ans;
   }
 };
